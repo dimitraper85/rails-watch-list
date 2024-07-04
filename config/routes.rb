@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :lists, only: [:index, :show, :new, :create] do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:new, :create, :destroy]
   end
-  resources :bookmarks, only: :destroy
 end
 
 # A user can add a new bookmark (movie/list pair) to an existing list
@@ -26,5 +25,5 @@ end
 # As a user, I can see all my movie lists - index ✅
 # As a user, I can create a movie list - show ✅
 # As a user, I can see the details of a movie list -new and create ✅
-# As a user, I can bookmark a movie inside a movie list -new and create (nested in lists)
-# As a user, I can destroy a bookmark - destroy (not nested)
+# As a user, I can bookmark a movie inside a movie list -new and create (nested in lists) ✅
+# As a user, I can destroy a bookmark - destroy
