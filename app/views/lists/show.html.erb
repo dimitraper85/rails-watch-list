@@ -1,5 +1,12 @@
 <div class="container">
   <h2><%= @list.name %></h2>
+
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key,
+      width: 400, height: 300, crop: :fill %>
+<% end %>
+
+
   <div>
     <ul> <% @bookmarks.each do |bookmark| %>
             <li><%= bookmark.movie.title %></li>
